@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
-import jwt_decode from 'jwt-decode';
+import { jwtDecode } from 'jwt-decode';
 
-import Login from './components/Login';
-import Register from './components/Register';
-import AdminDashboard from './components/AdminDashboard';
-import StaffDashboard from './components/StaffDashboard';
-import AddProduct from './components/AddProduct';
-import EditProduct from './components/EditProduct';
-import RecordPurchase from './components/RecordPurchase';
-import RecordSale from './components/RecordSale';
-import Reports from './components/Reports';
+import Login from './components/Login.jsx';
+import Register from './components/Register.jsx';
+import AdminDashboard from './components/AdminDashboard.jsx';
+import StaffDashboard from './components/StaffDashboard.jsx';
+import AddProduct from './components/AddProduct.jsx';
+import EditProduct from './components/EditProduct.jsx';
+import RecordPurchase from './components/RecordPurchase.jsx';
+import RecordSale from './components/RecordSale.jsx';
+import Reports from './components/Reports.jsx';
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -19,7 +19,7 @@ const App = () => {
   useEffect(() => {
     if (token) {
       localStorage.setItem('token', token);
-      const decoded = jwt_decode(token);
+      const decoded = jwtDecode(token);
       setUser(decoded.user);
     } else {
       localStorage.removeItem('token');
