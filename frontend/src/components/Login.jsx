@@ -1,13 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-const Login = ({ setToken }) => {
+const Login = ({ setToken, user }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
   });
+
+  useEffect(() => {
+    if (user) {
+      navigate('/products');
+    }
+  }, [user, navigate]);
 
   const { username, password } = formData;
 
@@ -19,7 +25,6 @@ const Login = ({ setToken }) => {
     try {
       const res = await axios.post('/api/auth/login', { username, password });
       setToken(res.data.token);
-      navigate('/products');
     } catch (err) {
       console.error(err.response.data);
     }
