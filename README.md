@@ -45,6 +45,7 @@ Once the containers are running, you can access the application in your web brow
 *   **Database:** MongoDB
 *   **Containerization:** Docker, Docker Compose
 
+
 ## Project Architecture
 
 The project follows a classic client-server architecture, containerized with Docker for easy setup and deployment.
@@ -56,3 +57,4 @@ The project follows a classic client-server architecture, containerized with Doc
 *   **Database:** A MongoDB instance that serves as the database for the application. It stores all the data, including products, sales, and purchases. It runs in a separate Docker container, and its data is persisted using a Docker volume.
 
 The services are orchestrated using `docker-compose`, which defines how the three containers (frontend, backend, and database) are networked and run together.
+
