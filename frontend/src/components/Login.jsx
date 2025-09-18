@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = ({ setToken, user }) => {
-
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
