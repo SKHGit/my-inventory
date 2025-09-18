@@ -49,7 +49,7 @@ const App = () => {
     <Router>
       <Header user={user} setToken={setToken} />
       <Routes>
-        <Route path="/login" element={<Login setToken={setToken} />} />
+        <Route path="/login" element={<Login setToken={setToken} user={user} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/dashboard" element={renderDashboard()} />
         <Route path="/products" element={<ProductList token={token} />} />
