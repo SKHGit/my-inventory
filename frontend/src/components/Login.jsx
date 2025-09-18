@@ -26,7 +26,6 @@ const Login = ({ setToken, user }) => {
     try {
       const res = await axios.post('/api/auth/login', { username, password });
       setToken(res.data.token);
-      navigate('/products');
     } catch (err) {
       console.error(err.response.data);
     }
