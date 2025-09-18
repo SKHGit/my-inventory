@@ -14,6 +14,7 @@ import Reports from './components/Reports.jsx';
 import ProductList from './components/ProductList.jsx';
 import PurchaseHistory from './components/PurchaseHistory.jsx';
 import SalesHistory from './components/SalesHistory.jsx';
+import Header from './components/Header.jsx';
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -46,6 +47,7 @@ const App = () => {
 
   return (
     <Router>
+      <Header user={user} setToken={setToken} />
       <Routes>
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
