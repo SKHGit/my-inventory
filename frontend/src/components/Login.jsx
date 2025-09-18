@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Login = ({ setToken }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
     password: '',
@@ -18,6 +19,7 @@ const Login = ({ setToken }) => {
     try {
       const res = await axios.post('/api/auth/login', { username, password });
       setToken(res.data.token);
+      navigate('/products');
     } catch (err) {
       console.error(err.response.data);
     }

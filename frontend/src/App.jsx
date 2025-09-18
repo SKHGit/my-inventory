@@ -11,6 +11,10 @@ import EditProduct from './components/EditProduct.jsx';
 import RecordPurchase from './components/RecordPurchase.jsx';
 import RecordSale from './components/RecordSale.jsx';
 import Reports from './components/Reports.jsx';
+import ProductList from './components/ProductList.jsx';
+import PurchaseHistory from './components/PurchaseHistory.jsx';
+import SalesHistory from './components/SalesHistory.jsx';
+import Header from './components/Header.jsx';
 
 const App = () => {
   const [token, setToken] = useState(localStorage.getItem('token'));
@@ -43,12 +47,16 @@ const App = () => {
 
   return (
     <Router>
+      <Header user={user} setToken={setToken} />
       <Routes>
         <Route path="/login" element={<Login setToken={setToken} />} />
         <Route path="/register" element={<Register setToken={setToken} />} />
         <Route path="/dashboard" element={renderDashboard()} />
+        <Route path="/products" element={<ProductList token={token} />} />
         <Route path="/add-product" element={<AddProduct token={token} />} />
         <Route path="/edit-product/:id" element={<EditProduct token={token} />} />
+        <Route path="/purchase-history" element={<PurchaseHistory token={token} />} />
+        <Route path="/sales-history" element={<SalesHistory token={token} />} />
         <Route path="/record-purchase" element={<RecordPurchase token={token} />} />
         <Route path="/record-sale" element={<RecordSale token={token} />} />
         <Route path="/reports" element={<Reports token={token} />} />
